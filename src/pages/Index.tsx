@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import heroImage from "@/assets/hero-santa-teresa.png";
 
-const WHATSAPP_NUMBER = "50612345678"; // Replace with actual number
+const WHATSAPP_NUMBER = "972543344501";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in the lots in Santa Teresa.")}`;
 
 const features = [
@@ -43,17 +43,17 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pb-16 pt-32 text-white">
-          <p className="text-sm uppercase tracking-[0.25em] mb-3 opacity-80">Santa Teresa, Costa Rica</p>
-          <h1 className="text-4xl sm:text-6xl font-bold leading-tight mb-4">
+          <p className="text-base sm:text-lg uppercase tracking-[0.22em] mb-3 opacity-90">Santa Teresa, Costa Rica</p>
+          <h1 className="text-5xl sm:text-7xl font-bold leading-tight mb-5">
             Your Land in Paradise<br />
             <span className="text-accent">Starting at $140K</span>
           </h1>
-          <p className="text-lg sm:text-xl opacity-90 max-w-xl mb-8">
+          <p className="text-xl sm:text-2xl opacity-95 max-w-2xl mb-9 leading-relaxed">
             Ready-to-build lots with water, electricity, and road access — just 5 minutes from the heart of Santa Teresa.
           </p>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white text-lg px-8 py-6 gap-3 rounded-full shadow-xl">
-              <MessageCircle className="w-6 h-6" />
+            <Button size="lg" className="bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white text-xl px-9 py-7 gap-3 rounded-full shadow-xl">
+              <MessageCircle className="w-7 h-7" />
               Chat on WhatsApp
             </Button>
           </a>
@@ -63,15 +63,15 @@ const Index = () => {
       {/* Features */}
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-12">Why These Lots?</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-14">More Than Great Location</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {features.map((f) => (
-              <Card key={f.title} className="p-6 text-center border-border bg-card hover:shadow-lg transition-shadow">
-                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                  <f.icon className="w-7 h-7 text-primary" />
+              <Card key={f.title} className="p-7 text-center border-border bg-card hover:shadow-lg transition-shadow">
+                <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 ring-1 ring-primary/15 flex items-center justify-center">
+                  <f.icon className="w-8 h-8 text-primary" strokeWidth={2.3} />
                 </div>
-                <h3 className="font-semibold text-foreground mb-1">{f.title}</h3>
-                <p className="text-sm text-muted-foreground">{f.desc}</p>
+                <h3 className="text-[1.8rem] sm:text-3xl font-semibold text-foreground mb-2 leading-tight">{f.title}</h3>
+                <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">{f.desc}</p>
               </Card>
             ))}
           </div>
@@ -81,13 +81,13 @@ const Index = () => {
       {/* Contact / Lead Capture */}
       <section className="py-20 px-6 bg-primary text-primary-foreground">
         <div className="max-w-lg mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-3">Interested? Let's Talk.</h2>
-          <p className="opacity-80 mb-8">Leave your info and we'll reach out, or message us directly on WhatsApp.</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Interested? Let's Talk.</h2>
+          <p className="text-lg sm:text-xl opacity-90 mb-9 leading-relaxed">Leave your info and we'll reach out, or message us directly on WhatsApp.</p>
 
           {submitted ? (
             <div className="bg-white/10 rounded-xl p-8">
-              <p className="text-xl font-semibold">Thank you, {name}! 🎉</p>
-              <p className="mt-2 opacity-80">We'll be in touch very soon.</p>
+              <p className="text-2xl font-semibold">Thank you, {name}! 🎉</p>
+              <p className="mt-2 text-lg opacity-85">We'll be in touch very soon.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -96,7 +96,7 @@ const Index = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-12"
+                className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-14 text-lg"
               />
               <Input
                 placeholder="Phone Number (with country code)"
@@ -104,18 +104,18 @@ const Index = () => {
                 onChange={(e) => setPhone(e.target.value)}
                 required
                 type="tel"
-                className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-12"
+                className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-14 text-lg"
               />
-              <Button type="submit" size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-12 text-lg font-semibold rounded-full">
-                <Phone className="w-5 h-5 mr-2" />
+              <Button type="submit" size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 text-xl font-semibold rounded-full">
+                <Phone className="w-6 h-6 mr-2" />
                 Request a Call Back
               </Button>
             </form>
           )}
 
           <div className="mt-8">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity">
-              <MessageCircle className="w-5 h-5" />
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 underline underline-offset-4 text-lg opacity-90 hover:opacity-100 transition-opacity">
+              <MessageCircle className="w-6 h-6" />
               Or message us on WhatsApp now
             </a>
           </div>
@@ -123,8 +123,8 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 text-center text-sm text-muted-foreground">
-        <p>© 2025 Santa Teresa Lots · Costa Rica</p>
+      <footer className="py-8 px-6 text-center text-base text-muted-foreground">
+        <p>© 2026 Santa Teresa Lots · Costa Rica</p>
       </footer>
     </div>
   );
