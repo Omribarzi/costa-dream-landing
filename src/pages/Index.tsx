@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { MapPin, Droplets, Zap, Car, Phone, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card } from "@/components/ui/card";
-import heroImage from "@/assets/hero-santa-teresa.png";
+import heroImage1200 from "@/assets/hero-santa-teresa-1200.jpg";
+import heroImage768 from "@/assets/hero-santa-teresa-768.jpg";
 
 const WHATSAPP_NUMBER = "972543344501";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'm interested in the lots in Santa Teresa.")}`;
@@ -37,9 +35,15 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-end">
         <img
-          src={heroImage}
+          src={heroImage1200}
+          srcSet={`${heroImage768} 768w, ${heroImage1200} 1200w`}
+          sizes="100vw"
           alt="Aerial view of Santa Teresa, Costa Rica — lush jungle meets turquoise ocean"
           className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+          width={1200}
+          height={896}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pb-16 pt-32 text-white">
@@ -52,10 +56,10 @@ const Index = () => {
             Ready-to-build lots with water, electricity, and road access, only 5 minutes from the heart of Santa Teresa.
           </p>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white text-xl px-9 py-7 gap-3 rounded-full shadow-xl">
+            <span className="inline-flex items-center bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white text-xl px-9 py-7 gap-3 rounded-full shadow-xl font-semibold">
               <MessageCircle className="w-7 h-7" />
               Chat on WhatsApp
-            </Button>
+            </span>
           </a>
         </div>
       </section>
@@ -66,13 +70,13 @@ const Index = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-14">More Than Great Location</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {features.map((f) => (
-              <Card key={f.title} className="p-7 text-center border-border bg-card hover:shadow-lg transition-shadow">
+              <article key={f.title} className="p-7 text-center border border-border bg-card hover:shadow-lg transition-shadow rounded-xl">
                 <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 ring-1 ring-primary/15 flex items-center justify-center">
                   <f.icon className="w-8 h-8 text-primary" strokeWidth={2.3} />
                 </div>
                 <h3 className="text-[1.8rem] sm:text-3xl font-semibold text-foreground mb-2 leading-tight">{f.title}</h3>
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">{f.desc}</p>
-              </Card>
+              </article>
             ))}
           </div>
         </div>
@@ -91,25 +95,25 @@ const Index = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
+              <input
                 placeholder="Your Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-14 text-lg"
+                className="w-full bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-14 text-lg rounded-md px-3"
               />
-              <Input
+              <input
                 placeholder="Phone Number (with country code)"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
                 type="tel"
-                className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-14 text-lg"
+                className="w-full bg-white/10 border border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 h-14 text-lg rounded-md px-3"
               />
-              <Button type="submit" size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 text-xl font-semibold rounded-full">
+              <button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 text-xl font-semibold rounded-full inline-flex items-center justify-center">
                 <Phone className="w-6 h-6 mr-2" />
                 Request a Call Back
-              </Button>
+              </button>
             </form>
           )}
 
