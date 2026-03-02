@@ -49,7 +49,7 @@ const Index = () => {
             <span className="text-accent">Starting at $140K</span>
           </h1>
           <p className="text-xl sm:text-2xl opacity-95 max-w-2xl mb-9 leading-relaxed">
-            Ready-to-build lots with water, electricity, and road access — just 5 minutes from the heart of Santa Teresa.
+            Ready-to-build lots with water, electricity, and road access, only 5 minutes from the heart of Santa Teresa.
           </p>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white text-xl px-9 py-7 gap-3 rounded-full shadow-xl">
